@@ -4,7 +4,9 @@ import {StyleSheet, Text, View} from 'react-native';
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Task</Text>
+      <View style={styles.top}>
+        <Text style={styles.title}>Task</Text>
+      </View>
     </View>
   );
 }
@@ -12,11 +14,12 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FAFAFF',
+    backgroundColor: '#E5E5E5',
   },
   title: {
     color: '#070414',
     fontFamily: 'Rubik Medium',
     fontSize: 24,
   },
+  top: {},
 });
