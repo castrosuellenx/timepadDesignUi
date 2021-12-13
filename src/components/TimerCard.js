@@ -7,28 +7,28 @@ import RightArrow from '../assets/svg/right-arrow.svg';
 
 export default function TimerCard() {
   return (
-    <TouchableOpacity activeOpacity={0.5} style={styles.timerCard}>
-      <View style={styles.boxTimer}>
-        <Text style={styles.timerText}>00:42:21</Text>
+    <TouchableOpacity activeOpacity={0.5} style={styles.container}>
+      <View style={styles.box}>
+        <Text style={styles.time}>00:42:21</Text>
         <View style={styles.containSvg}>
           <RightArrow height={'100%'} width={'100%'} />
         </View>
       </View>
 
-      <View style={styles.categoryDetails}>
-        <View style={styles.categoryTypeLine}>
-          <Text style={styles.categoryTypeText}>Work</Text>
+      <View style={styles.details}>
+        <View style={styles.tagLine}>
+          <Text style={styles.tagName}>Work</Text>
         </View>
 
-        <View style={styles.categoryNameContain}>
+        <View style={styles.project}>
           <LinearGradient
             start={{x: 0, y: 0}}
             end={{x: 1, y: 0}}
             colors={[colors.purpleRadial, '#B482E5', '#F1E8FA']}
-            style={styles.categoryNameColor}>
-            <View style={styles.categoryNameColorCircle} />
+            style={styles.projectColor}>
+            <View style={styles.projectColorCircle} />
           </LinearGradient>
-          <Text style={styles.categoryNameText}>Rasion Project</Text>
+          <Text style={styles.projectName}>Rasion Project</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -36,7 +36,7 @@ export default function TimerCard() {
 }
 
 const styles = StyleSheet.create({
-  timerCard: {
+  container: {
     width: '90%',
     height: '15%',
     alignSelf: 'center',
@@ -45,39 +45,43 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: '5%',
   },
-  boxTimer: {
+  box: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginHorizontal: '5%',
   },
-  timerText: {
+  time: {
     color: colors.defaultBlack,
     fontFamily: 'Rubik Medium',
     fontSize: 32,
   },
-  categoryDetails: {
+  containSvg: {
+    width: 24,
+    height: 24,
+  },
+  details: {
     flexDirection: 'row',
     marginLeft: '5%',
   },
-  categoryTypeLine: {
+  tagLine: {
     borderColor: colors.pink,
     borderWidth: 1.5,
     borderRadius: 5,
   },
-  categoryTypeText: {
+  tagName: {
     color: colors.pink,
     fontSize: 12,
     fontFamily: 'Rubik Regular',
     paddingVertical: 4,
     paddingHorizontal: 7,
   },
-  categoryNameContain: {
+  project: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft: '6%',
+    marginLeft: '5%',
   },
-  categoryNameColor: {
+  projectColor: {
     width: 14,
     height: 14,
     borderRadius: 7,
@@ -85,13 +89,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: '5%',
   },
-  categoryNameColorCircle: {
+  projectColorCircle: {
     width: 10,
     height: 10,
     borderRadius: 5,
     backgroundColor: colors.defaultWhite,
   },
-  categoryNameText: {
+  projectName: {
     color: colors.defaultBlack,
     fontSize: 16,
     fontFamily: 'Rubik Regular',

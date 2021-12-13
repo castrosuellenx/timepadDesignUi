@@ -8,11 +8,11 @@ import RightArrow from '../assets/svg/right-arrow.svg';
 
 export default function List() {
   return (
-    <View style={styles.listPanel}>
-      <View style={styles.listHeader}>
-        <Text style={styles.listTitle}>Today</Text>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>Today</Text>
         <TouchableOpacity>
-          <Text style={styles.listMore}>See All</Text>
+          <Text style={styles.more}>See All</Text>
         </TouchableOpacity>
       </View>
 
@@ -25,22 +25,23 @@ export default function List() {
 }
 
 const styles = StyleSheet.create({
-  listPanel: {
+  container: {
     width: '90%',
     alignSelf: 'center',
+    marginTop: '2%',
   },
-  listHeader: {
+  header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: '2%',
   },
-  listTitle: {
+  title: {
     color: colors.black,
     fontFamily: 'Rubik Medium',
     fontSize: 20,
   },
-  listMore: {
+  more: {
     color: colors.black,
     fontFamily: 'Rubik Regular',
     fontSize: 16,

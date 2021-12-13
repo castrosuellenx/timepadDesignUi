@@ -6,7 +6,7 @@ import More from '../assets/svg/more.svg';
 
 export default function Header() {
   return (
-    <View style={styles.header}>
+    <View style={styles.container}>
       <Text style={styles.title}>Task</Text>
       <TouchableOpacity style={styles.containSvg}>
         <More height={'100%'} width={'100%'} />
@@ -17,10 +17,6 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.lightGrey,
-  },
-  header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',

@@ -10,8 +10,8 @@ export default function Task() {
     <View style={styles.container}>
       <View style={styles.inner}>
         <View style={styles.icon}>
-          <View style={styles.svgContain}>
-            <Desktop width={'60%'} height={'60%'} />
+          <View style={styles.desktopContain}>
+            <Desktop width={'55%'} height={'55%'} />
           </View>
         </View>
 
@@ -22,7 +22,7 @@ export default function Task() {
           </View>
 
           <View style={styles.detailsBottom}>
-            <View style={{flexDirection: 'row', marginLeft: '4%'}}>
+            <View style={styles.detailsInner}>
               <View style={styles.tagBox}>
                 <Text style={styles.tagName}>Work</Text>
               </View>
@@ -33,7 +33,9 @@ export default function Task() {
             </View>
 
             <TouchableOpacity style={styles.playButton}>
-              <Play width="100%" height="100%" />
+              <View style={styles.playContain}>
+                <Play width="100%" height="100%" />
+              </View>
             </TouchableOpacity>
           </View>
         </View>
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     justifyContent: 'center',
     marginVertical: '2%',
-    backgroundColor: colors.lightGrey,
+    backgroundColor: colors.defaultWhite,
   },
   inner: {
     flexDirection: 'row',
@@ -57,18 +59,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   icon: {
-    width: '14%',
+    width: '13%',
+    height: '100%',
   },
-  svgContain: {
-    width: '100%',
-    height: 45,
-    borderRadius: 25,
+  desktopContain: {
+    flex: 1,
+    borderRadius: 50,
     backgroundColor: colors.purple,
     justifyContent: 'center',
     alignItems: 'center',
   },
   details: {
-    width: '85%',
+    width: '87%',
     justifyContent: 'center',
   },
   detailsTop: {
@@ -92,6 +94,11 @@ const styles = StyleSheet.create({
     color: colors.gray2,
     fontSize: 12,
     fontFamily: 'Rubik Medium',
+  },
+  detailsInner: {
+    flex: 9,
+    flexDirection: 'row',
+    marginLeft: '4%',
   },
   tagBox: {
     backgroundColor: '#FFEFF1',
@@ -117,7 +124,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
   playButton: {
-    width: '10%',
-    height: 25,
+    flex: 1,
+  },
+  playContain: {
+    flex: 1,
   },
 });
