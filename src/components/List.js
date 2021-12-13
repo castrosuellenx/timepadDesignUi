@@ -1,26 +1,46 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  FlatList,
+  ScrollView,
+} from 'react-native';
 
 import Task from './Task';
 
 import colors from '../config/colors';
 import RightArrow from '../assets/svg/right-arrow.svg';
 
+import tasks from '../data/tasks';
+
 export default function List() {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Today</Text>
-        <TouchableOpacity>
-          <Text style={styles.more}>See All</Text>
-        </TouchableOpacity>
-      </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.title}>Today</Text>
+          <TouchableOpacity>
+            <Text style={styles.more}>See All</Text>
+          </TouchableOpacity>
+        </View>
 
-      <Task />
-      <Task />
-      <Task />
-      <Task />
-    </View>
+        <FlatList
+          data={tasks}
+          keyExtractor={item => item.id}
+          renderItem={({item}) => (
+            <Task
+              icon={item.icon}
+              desc={item.desc}
+              time={item.time}
+              tag={item.tag}
+              project={item.project}
+            />
+          )}
+        />
+      </View>
+    </ScrollView>
   );
 }
 

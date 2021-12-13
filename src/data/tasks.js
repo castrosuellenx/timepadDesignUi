@@ -33,6 +33,30 @@ const tasks = [
     tag: 'Personal',
     project: 'Reading',
   },
+  {
+    id: 5,
+    icon: 'codeSlash',
+    desc: 'Responsive Design',
+    time: '00:05:36',
+    tag: 'Personal',
+    project: 'Coding',
+  },
+  {
+    id: 6,
+    icon: 'barbell',
+    desc: 'Guided Meditation',
+    time: '00:11:53',
+    tag: 'Personal',
+    project: 'Workout',
+  },
+  {
+    id: 7,
+    icon: 'book',
+    desc: 'Finish Clean Code book',
+    time: '03:49:27',
+    tag: 'Personal',
+    project: 'Reading',
+  },
 ];
 
 export default tasks;

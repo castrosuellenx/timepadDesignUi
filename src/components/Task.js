@@ -3,32 +3,149 @@ import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 import colors from '../config/colors';
 import Desktop from '../assets/svg/desktop.svg';
+import Barbell from '../assets/svg/barbell.svg';
+import CodeSlash from '../assets/svg/code-slash.svg';
+import Book from '../assets/svg/book.svg';
 import Play from '../assets/svg/play.svg';
 
-export default function Task() {
+export default function Task({icon, desc, time, tag, project}) {
+  // Funções para simular escolha do usuário
+  const getIcon = () => {
+    switch (icon) {
+      case 'desktop':
+        return <Desktop width={'55%'} height={'55%'} />;
+
+      case 'barbell':
+        return <Barbell width={'55%'} height={'55%'} />;
+
+      case 'codeSlash':
+        return <CodeSlash width={'55%'} height={'55%'} />;
+
+      case 'book':
+        return <Book width={'55%'} height={'55%'} />;
+
+      default:
+        return;
+    }
+  };
+
+  const getIconColor = () => {
+    switch (icon) {
+      case 'desktop':
+        return colors.purple;
+
+      case 'barbell':
+        return colors.orange;
+
+      case 'codeSlash':
+        return colors.pink;
+
+      case 'book':
+        return colors.green;
+
+      default:
+        return colors.lightGrey;
+    }
+  };
+
+  const getTagBoxColor = () => {
+    switch (tag) {
+      case 'Work':
+        return '#FFEFF1';
+
+      case 'Personal':
+        return colors.gray6;
+
+      default:
+        return colors.lightGrey;
+    }
+  };
+
+  const getTagNameColor = () => {
+    switch (tag) {
+      case 'Work':
+        return colors.pink;
+
+      case 'Personal':
+        return colors.gray3;
+
+      default:
+        return colors.defaultBlack;
+    }
+  };
+
+  const getProjectBoxColor = () => {
+    switch (project) {
+      case 'Rasion Project':
+        return '#F5EEFC';
+
+      case 'Workout':
+        return '#FEF5ED';
+
+      case 'Coding':
+        return '#FFEFF1';
+
+      case 'Reading':
+        return '#E6FCF4';
+
+      default:
+        return colors.lightGrey;
+    }
+  };
+
+  const getProjectNameColor = () => {
+    switch (project) {
+      case 'Rasion Project':
+        return colors.purple;
+
+      case 'Workout':
+        return colors.orange;
+
+      case 'Coding':
+        return colors.pink;
+
+      case 'Reading':
+        return colors.green;
+
+      default:
+        return colors.defaultBlack;
+    }
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.inner}>
         <View style={styles.icon}>
-          <View style={styles.desktopContain}>
-            <Desktop width={'55%'} height={'55%'} />
+          <View
+            style={[styles.desktopContain, {backgroundColor: getIconColor()}]}>
+            {getIcon()}
           </View>
         </View>
 
         <View style={styles.details}>
           <View style={styles.detailsTop}>
-            <Text style={styles.name}>UI Design</Text>
-            <Text style={styles.time}>00:42:21</Text>
+            <Text style={styles.name}>{desc}</Text>
+            <Text style={styles.time}>{time}</Text>
           </View>
 
           <View style={styles.detailsBottom}>
             <View style={styles.detailsInner}>
-              <View style={styles.tagBox}>
-                <Text style={styles.tagName}>Work</Text>
+              <View
+                style={[styles.tagBox, {backgroundColor: getTagBoxColor()}]}>
+                <Text style={[styles.tagName, {color: getTagNameColor()}]}>
+                  {tag}
+                </Text>
               </View>
 
-              <View style={styles.projectBox}>
-                <Text style={styles.projectName}>Rasion Project</Text>
+              <View
+                style={[
+                  styles.projectBox,
+                  {backgroundColor: getProjectBoxColor()},
+                ]}>
+                <Text
+                  style={[styles.projectName, {color: getProjectNameColor()}]}>
+                  {project}
+                </Text>
               </View>
             </View>
 
@@ -65,7 +182,6 @@ const styles = StyleSheet.create({
   desktopContain: {
     flex: 1,
     borderRadius: 50,
-    backgroundColor: colors.purple,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -101,11 +217,9 @@ const styles = StyleSheet.create({
     marginLeft: '4%',
   },
   tagBox: {
-    backgroundColor: '#FFEFF1',
     borderRadius: 5,
   },
   tagName: {
-    color: colors.pink,
     fontSize: 12,
     fontFamily: 'Rubik Regular',
     paddingVertical: 3,
